@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bella Vista Dining</title>
+
+  <!-- Google Fonts: Bricolage Grotesque, DM Sans, Playfair Display SC, Inter (fallback for SF Pro) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&family=Playfair+Display+SC:wght@400;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container nav">
+
+      <div class="links">
+        <a href="#" id="nav-home" class="nav-link" onclick="showPage('home'); return false;">Home</a>
+        <a href="#" id="nav-menu" class="nav-link" onclick="showPage('menu'); return false;">Menu</a>
+        <a href="#" id="nav-reserve" class="nav-link" onclick="showPage('reserve'); return false;">Reservations</a>
+        <a href="#" class="nav-link" onclick="goToSection('story'); return false;">About Us</a>
+        <a href="#" class="nav-link" onclick="goToSection('contact'); return false;">Contact</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="cart" id="cartBtn" type="button" onclick="openCart()" aria-label="Open your order">
+          <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="square">
+            <path d="M2 3h3v13h12"/>
+            <path d="M5 7h14v6H5"/>
+            <rect x="6" y="19" width="3" height="3" fill="#000000"/>
+            <rect x="14" y="19" width="3" height="3" fill="#000000"/>
+          </svg>
+          <span class="cart-badge empty" id="cartCount">0</span>
+        </button>
+        <a href="#" class="book-btn" onclick="showPage('reserve'); return false;">Book a table</a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HOME PAGE ================= -->
+  <div id="page-home" class="page">
+
+    <!-- Hero -->
+    <div class="hero-wrap">
+      <div class="hero">
+        <img class="hero-img" src="mgaImahe/hero.png" alt="Open-air dining hall overlooking the farm">
+        <div class="hero-shade"></div>
+
+        <div class="hero-text">
+          <p class="hero-tag">— FARM TO TABLE · BATANGAS</p>
+          <h1>Mula Bukid,<br>Hanggang Hapag</h1>
+          <p class="hero-sub">From the farm, to the table</p>
+          <p class="hero-desc">Filipino comfort food and continental specialties in a cozy garden setting. Choose your table, reserve online, and pre-order before you arrive.</p>
+          <a href="#" class="btn-dark" onclick="showPage('reserve'); return false;">Reserve a Table</a>
+          <a href="#" class="btn-white" onclick="showPage('menu'); return false;">See the Menu</a>
+        </div>
+
+        <div class="hero-open">
+          <p class="open-small">OPEN TODAY</p>
+          <p class="open-hours">10:00 AM - 10:00 PM</p>
+          <p class="open-small">TUESDAY to SUNDAY</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome">
+      <div class="container center">
+        <p class="label">WELCOME TO BELLA VISTA !</p>
+        <h2 class="big-title">Where every Salo-Salo<br>feels Special</h2>
+        <p class="welcome-desc">Bella Vista Dining is a premier farm-to-table restaurant offering a cozy, ambient, and modern dining experience. Our menu brings together beloved Filipino comfort food and continental specialties for families, couples, and groups seeking a delightful culinary escape.</p>
+        <a href="#" class="text-link" onclick="goToSection('story'); return false;">Discover our Story →</a>
+      </div>
+
+      <div class="farmer">
+        <img src="mgaImahe/maindesign.png" alt="A farmer with a spread of Filipino dishes">
+        <ul class="farmer-notes">
+          <li>🍃 Ingredients grown nearby farms</li>
+          <li>🍃 Recipes cooked the way home does it</li>
+          <li>🍃 Tables ready for every kind of gathering</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- From our kitchen -->
+    <div class="kitchen">
+      <div class="container center">
+        <p class="label">FROM OUR KITCHEN</p>
+        <h2 class="mid-title">Comfort, thoughtfully plated.</h2>
+        <p class="gray-text">Familiar flavors elevated with honest ingredients and a generous spirit.</p>
+
+        <div class="dish-row">
+
+          <div class="dish-card">
+            <div class="dish-photo">
+              <img src="mgaImahe/humba.jpg" alt="Special Pork Humba">
+              <span class="tag">HOUSE FAVORITE</span>
+            </div>
+            <div class="dish-info">
+              <h3>Special Pork Humba</h3>
+              <div class="dish-line"></div>
+              <div class="dish-bottom">
+                <span class="price">₱520</span>
+                <span class="add">Add to order <svg class="add-icon" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square">
+                  <path d="M2 3h3v13h12"/><path d="M5 7h14v6H5"/>
+                  <rect x="6" y="19" width="3" height="3" fill="#FFFFFF"/>
+                  <rect x="14" y="19" width="3" height="3" fill="#FFFFFF"/>
+                </svg>
+              </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card">
+            <div class="dish-photo">
+              <img src="mgaImahe/steak.jpg" alt="Grilled Beef Tenderloin">
+              <span class="tag">CONTINENTAL</span>
+            </div>
+            <div class="dish-info">
+              <h3>Grilled Beef Tenderloin</h3>
+              <div class="dish-line"></div>
+              <div class="dish-bottom">
+                <span class="price">₱1,150</span>
+                <span class="add">Add to order <svg class="add-icon" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square">
+                  <path d="M2 3h3v13h12"/><path d="M5 7h14v6H5"/>
+                  <rect x="6" y="19" width="3" height="3" fill="#FFFFFF"/>
+                  <rect x="14" y="19" width="3" height="3" fill="#FFFFFF"/>
+                </svg>
+              </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dish-card">
+            <div class="dish-photo">
+              <img src="mgaImahe/bruschetta.jpg" alt="Tomato Basil Bruschetta">
+              <span class="tag">CHEF'S PICK</span>
+            </div>
+            <div class="dish-info">
+              <h3>Tomato Basil Bruschetta</h3>
+              <div class="dish-line"></div>
+              <div class="dish-bottom">
+                <span class="price">₱220</span>
+                <span class="add">Add to order <svg class="add-icon" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square">
+                  <path d="M2 3h3v13h12"/><path d="M5 7h14v6H5"/>
+                  <rect x="6" y="19" width="3" height="3" fill="#FFFFFF"/>
+                  <rect x="14" y="19" width="3" height="3" fill="#FFFFFF"/>
+                </svg>
+              </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="#" class="btn-dark big-btn" onclick="showPage('menu'); return false;">View the full menu →</a>
+      </div>
+    </div>
+
+    <!-- Our story -->
+    <div class="story" id="story">
+      <div class="container story-row">
+
+        <div class="story-photos">
+          <img class="story-1" src="mgaImahe/design7.jpg" alt="Guests dining in the garden hall">
+          <img class="story-2" src="mgaImahe/design6.jpg" alt="Dining hall interior">
+          <div class="est">
+            <p class="est-small">EST.</p>
+            <p class="est-year">2021</p>
+          </div>
+        </div>
+
+        <div class="story-text">
+          <p class="label">OUR STORY</p>
+          <h2 class="big-title left">Born from a love of good food and beautiful places.</h2>
+          <p class="story-desc">Established alongside the Bella Vista estate in 2021, the dining hall initially catered exclusively to in-house guests.<br>Due to overwhelming public demand for its signature dishes and scenic garden views, it expanded into an independent destination restaurant known for its exquisite food, ambient atmosphere, and exceptional customer service.</p>
+          <p class="quote">“Food tastes better when it is shared in a place that feels special.”</p>
+          <a href="#" class="btn-outline" onclick="showPage('reserve'); return false;">Plan your Visit</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="experience">
+      <div class="container center">
+        <p class="label">THE BELLA VISTA EXPERIENCE</p>
+        <h2 class="sc-title">A little escape, close to home</h2>
+      </div>
+      <div class="exp-wrap">
+        <!-- leaf background: starts lower than the photos so they stick out on top -->
+        <div class="exp-leaf"></div>
+
+        <div class="exp-photos">
+          <img class="exp-1" src="mgaImahe/design4.jpg" alt="">
+          <img class="exp-2" src="mgaImahe/design5.jpg" alt="">
+          <img class="exp-3" src="mgaImahe/design3.jpg" alt="">
+          <img class="exp-4" src="mgaImahe/design2.jpg" alt="">
+        </div>
+      </div>
+
+    <!-- Table is waiting / contact -->
+    <div class="waiting" id="contact">
+      <div class="container waiting-row">
+
+        <div class="waiting-text">
+          <p class="label light">COME DINE WITH US</p>
+          <h2 class="waiting-title">Your table is waiting.</h2>
+          <p class="address">67 AJAM Avenue<br>Sto. Tomas City, Batangas</p>
+          <p class="days">TUESDAY - SUNDAY</p>
+          <p class="hours">10:00 AM - 10:00 PM</p>
+          <p class="closed">Closed every Monday</p>
+          <h3 class="inquiry">Reservation &amp; Inquiries</h3>
+          <p class="contact-line">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>+63 912 3456 789
+          </p>
+          <p class="contact-line">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>farmthetable@bellavistadining.ph
+          </p>
+          <a href="#" class="gold-link" onclick="showPage('reserve'); return false;">Reserve your Table!</a>
+        </div>
+
+        <img class="waiting-img" src="mgaImahe/design8.jpg" alt="Open-air dining hall">
+
+      </div>
+    </div>
+
+  </div>
+
+        </div>
+    </div>
+
+  </div>
+
+  </div>   <!-- closes page-home -->
+
+  <!-- ================= OTHER PAGES (built in later steps) ================= -->
+  <div id="page-menu" class="page">
+
+  <!-- Banner -->
+  <section class="menu-hero">
+    <h1>What’s on the Menu?</h1>
+    <p class="menu-hero-sub">Locally inspired comfort food and continental favorites, prepared fresh from our kitchen.</p>
+    <div class="menu-hero-notes">
+      <span class="note-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" style="width:18px;height:18px;">
+          <circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/>
+        </svg>
+        Kitchen closes at 9:00PM
+      </span>
+      <span class="note-item">All prices include VAT</span>
+    </div>
+  </section>
+
+  <div class="menu-body">
+
+  <div class="menu-bar">
+
+    <!-- Category tabs -->
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-cat="all">All Meals</button>
+      <button class="menu-tab" data-cat="main">Main Courses</button>
+      <button class="menu-tab" data-cat="apps">Appetizers &amp; Soups</button>
+      <button class="menu-tab" data-cat="dessert">Dessert &amp; Drinks</button>
+    </div>
+
+    <!-- Sort + filters -->
+    <div class="menu-tools">
+      <label class="tool-box sort-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.4" stroke-linecap="round" style="width:16px;height:16px;">
+          <path d="M3 6h18M6 12h12M10 18h4"/>
+        </svg>
+        <strong>Sort by</strong>
+        <select id="menuSort">
+          <option value="rec">Recommended</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="az">Name: A to Z</option>
+        </select>
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </label>
+
+      <button class="tool-box" id="filterToggle" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;">
+          <path d="M3 7h9M18 7h3M3 17h3M12 17h9"/>
+          <circle cx="15" cy="7" r="3"/><circle cx="9" cy="17" r="3"/>
+        </svg>
+        <strong id="filterLabel">Show Filters</strong>
+      </button>
+    </div>
+  </div>
+
+    <div class="menu-chips" id="menuChips">
+      <button class="chip" data-filter="House Favorite">House Favorite</button>
+      <button class="chip" data-filter="Local Classic">Local Classic</button>
+      <button class="chip" data-filter="Filipino">Filipino</button>
+      <button class="chip" data-filter="Continental">Continental</button>
+      <button class="chip" data-filter="Vegetarian">Vegetarian</button>
+      <button class="chip" data-filter="Spicy">Spicy</button>
+      <button class="chip" data-filter="under200">Under ₱200</button>
+    </div>
+
+    <!-- Cards are generated by script.js -->
+    <div class="menu-grid" id="menuGrid"></div>
+    <p class="menu-empty" id="menuEmpty" style="display:none;">No dishes match those filters.</p>
+
+  </div>
+</div>
+  <div id="page-reserve" class="page">
+
+  <!-- Hero -->
+  <section class="rv-hero">
+    <h1 class="rv-title">
+      <span class="rv-t1">Let us set the table</span>
+      <span class="rv-t2">for you.</span>
+    </h1>
+
+    <div class="rv-hero-left">
+      <img src="mgaImahe/design1.jpg" alt="Wooden dining chair at a Bella Vista table">
+      <p class="rv-kicker">BELLA VISTA RESERVATION</p>
+      <p class="rv-caption">Choose your date, pick a table, and pre-order your meal if you like.</p>
+    </div>
+
+    <div class="rv-hero-right">
+      <div class="rv-info">
+        <span class="rv-info-item">
+          <svg class="rv-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EBD5AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          TUESDAY to SUNDAY
+        </span>
+        <span class="rv-info-item">
+          <svg class="rv-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EBD5AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg>
+          10:00 AM to 10:00 PM
+        </span>
+        <span class="rv-info-item">
+          <svg class="rv-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EBD5AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M3 9h18"/><path d="M5 9v10M19 9v10M12 9v5"/></svg>
+          2-HOUR DINING BLOCK
+        </span>
+        <span class="rv-info-item">
+          <svg class="rv-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EBD5AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><circle cx="12" cy="12" r="9.5"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+          CLOSED ON MONDAYS
+        </span>
+      </div>
+
+      <div class="rv-types">
+        <div class="rv-type">
+          <img src="mgaImahe/standard.jpg" alt="Standard table">
+          <div class="rv-type-body">
+            <h3>Standard Table</h3>
+            <p class="rv-type-cap">S1 - S4 | 2 TO 4 GUESTS</p>
+            <p class="rv-type-fee">NO RESERVATION FEE</p>
+            <p class="rv-type-small">₱1,000 minimum order upon seating</p>
+          </div>
+        </div>
+        <div class="rv-type">
+          <img src="mgaImahe/family.jpg" alt="Family table">
+          <div class="rv-type-body">
+            <h3>Family Table</h3>
+            <p class="rv-type-cap">F1 - F3 | 5 TO 8 GUESTS</p>
+            <p class="rv-type-fee">₱500 RESERVATION FEE</p>
+          </div>
+        </div>
+        <div class="rv-type">
+          <img src="mgaImahe/vip.jpg" alt="VIP function room">
+          <div class="rv-type-body">
+            <h3>VIP Function Room</h3>
+            <p class="rv-type-cap">UP TO 15 GUESTS | MAX 20</p>
+            <p class="rv-type-fee">₱2,500 RESERVATION FEE</p>
+            <p class="rv-type-small">₱300 per extra guest above 15</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="rv-policy">Family and VIP reservation fees are consumable and go toward your final food bill. <a href="#" data-act="policies">Read our Policies</a></p>
+
+  <!-- Stepper -->
+  <div class="rv-stepper-wrap" id="rvStepper">
+    <div class="rv-stepper" id="rvStepperBox"></div>
+  </div>
+
+  <div class="rv-main">
+
+    <!-- STEP 1: Your details -->
+    <div class="rv-panel rv-layout" id="rvStep1">
+      <div class="rv-card">
+        <div class="rv-head">
+          <span class="rv-num">01</span>
+          <div>
+            <h2>When should we expect you?</h2>
+            <p>Tell us how to reach you and when you would like to dine.</p>
+          </div>
+        </div>
+        <div class="rv-rule"></div>
+
+        <div class="rv-grid">
+          <label class="rv-field">
+            <span class="rv-lab">Full name *</span>
+            <input type="text" data-rsv="name" autocomplete="name" placeholder="Juan Dela Cruz">
+            <span class="rv-err" data-err="name"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Email address *</span>
+            <input type="email" data-rsv="email" autocomplete="email" placeholder="you@example.com">
+            <span class="rv-err" data-err="email"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Contact number *</span>
+            <input type="tel" data-rsv="phone" autocomplete="tel" placeholder="0912 345 6789">
+            <span class="rv-err" data-err="phone"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Number of guests *</span>
+            <input type="number" min="1" max="20" data-rsv="guests">
+            <span class="rv-err" data-err="guests"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Preferred time *</span>
+            <select data-rsv="time"></select>
+            <span class="rv-err" data-err="time"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Reservation date *</span>
+            <input type="date" data-rsv="date">
+            <span class="rv-err" data-err="date"></span>
+          </label>
+        </div>
+
+        <p class="rv-hint"><b>Two-hour dining blocks</b><br>Our final reservation starts at 8:00 PM so every visit ends before our 10:00 PM closing time</p>
+
+        <div class="rv-rule"></div>
+        <div class="rv-foot">
+          <button type="button" class="rv-cancel" data-act="cancel">Cancel</button>
+          <button type="button" class="rv-btn" data-go="2">Continue</button>
+        </div>
+      </div>
+      <aside class="rv-summary" id="rvSummary1"></aside>
+    </div>
+
+    <!-- STEP 2: Choose your table -->
+    <div class="rv-panel" id="rvStep2">
+      <div class="rv-card">
+        <div class="rv-head">
+          <span class="rv-num">02</span>
+          <div>
+            <h2>Choose your table.</h2>
+            <p>Select an available table directly from the Bella Vista floor plan.</p>
+          </div>
+        </div>
+        <div class="rv-rule"></div>
+
+        <div class="rv-filters">
+          <label class="rv-field">
+            <span class="rv-lab">Reservation date</span>
+            <input type="date" data-rsv="date">
+            <span class="rv-err" data-err="date"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Time slot</span>
+            <select data-rsv="time"></select>
+            <span class="rv-err" data-err="time"></span>
+          </label>
+          <label class="rv-field">
+            <span class="rv-lab">Guests</span>
+            <input type="number" min="1" max="20" data-rsv="guests">
+            <span class="rv-err" data-err="guests"></span>
+          </label>
+        </div>
+
+        <div class="rv-tabs" id="rvTabs"></div>
+        <div class="rv-plan" id="rvPlan"></div>
+
+        <div class="rv-legend">
+          <span><i class="rv-sw"></i>Available</span>
+          <span><i class="rv-sw rv-sw-sel"></i>Selected</span>
+          <span><i class="rv-sw rv-sw-taken"></i>Booked</span>
+          <span><i class="rv-sw rv-sw-nofit"></i>Not for your party size</span>
+        </div>
+
+        <div class="rv-select" id="rvSelect"></div>
+
+        <div class="rv-req">
+          <label class="rv-lab" for="rvRequests">Special requests (optional)</label>
+          <textarea id="rvRequests" data-rsv="requests" maxlength="300" placeholder="Birthday setup, high chair, window view…"></textarea>
+        </div>
+
+        <div class="rv-rule"></div>
+        <div class="rv-foot">
+          <button type="button" class="rv-back" data-go="1">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Review & confirm -->
+    <div class="rv-panel rv-layout" id="rvStep3">
+      <div class="rv-card">
+        <h2 class="rv-h2">Review and confirm.</h2>
+
+        <div class="rv-tiles" id="rvReview"></div>
+
+        <p class="rv-q">How would you like to pay?</p>
+        <div class="rv-pays">
+          <button type="button" class="rv-pay" data-pay="card"><span>Credit card/Debit card</span></button>
+          <button type="button" class="rv-pay" data-pay="full"><span>Full online payment</span></button>
+          <button type="button" class="rv-pay" data-pay="onsite"><span>Cash or card payment</span><small>Pay after your meal</small></button>
+        </div>
+        <p class="rv-pay-help" id="rvPayHelp"></p>
+        <span class="rv-err rv-err-pad" data-err="pay"></span>
+
+        <div class="rv-terms">
+          <h3>Terms &amp; Conditions</h3>
+          <ol>
+            <li>Reserved tables are held for a maximum of 15 minutes after the scheduled time.</li>
+            <li>Cancellations must be made at least 24 hours in advance.</li>
+            <li>VIP and Family fees are non-refundable for same-day cancellations.</li>
+            <li>Outside food and beverages are strictly prohibited.</li>
+            <li>Payments may be made online or onsite through cash or card.</li>
+          </ol>
+          <label class="rv-agree">
+            <input type="checkbox" data-rsv="agree"> I have read and agree to the Terms and Conditions.
+          </label>
+        </div>
+        <span class="rv-err rv-err-pad" data-err="agree"></span>
+
+        <div class="rv-foot">
+          <button type="button" class="rv-back" data-go="2">Back</button>
+          <button type="button" class="rv-btn" data-act="confirm">Confirm Reservation</button>
+        </div>
+      </div>
+      <aside class="rv-summary" id="rvSummary3"></aside>
+    </div>
+
+    <!-- Confirmation screen -->
+    <div class="rv-panel" id="rvDone"></div>
+
+  </div>
+</div>
+  <div id="page-my" class="page"><div class="my-main" id="myBody"></div></div>
+  <div id="page-admin" class="page"><p class="placeholder">Staff dashboard: Step 8</p></div>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+
+      <p class="footer-blurb">Farm-to-table Filipino comfort food and continental favorites, served amid the gardens of Sto. Tomas.</p>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#" onclick="showPage('home'); return false;">Home</a>
+        <a href="#" onclick="showPage('menu'); return false;">Our menu</a>
+        <a href="#" onclick="showPage('reserve'); return false;">Reservation</a>
+        <a href="#" onclick="showPage('my'); return false;">My Reservation</a>
+        <a href="#" onclick="showPage('admin'); return false;">Staff Dashboard</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit us</h4>
+        <p>67 AJAM Avenue,<br>Sto. Tomas City, Batangas</p>
+        <p>Tue–Sun · 10 AM–10 PM</p>
+        <p>Closed Mondays</p>
+      </div>
+
+      <div class="footer-col">
+  <h4>Stay in touch</h4>
+  <p>+63 912 3456 789</p>
+  <p>farmthetable@bellavistadining.ph</p>
+  
+  <div class="socials">
+    
+     <!-- Facebook -->
+    <a href="https://facebook.com/" class="social-link" target="_blank" aria-label="Facebook">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#EBD5AB">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+  </a>
+  
+  <!-- TikTok -->
+  <a href="https://tiktok.com/" class="social-link" target="_blank" aria-label="TikTok">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#EBD5AB">
+      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://instagram.com/" class="social-link" target="_blank" aria-label="Instagram">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#EBD5AB">
+      <rect x="2" y="2" width="20" height="20" rx="6" fill="#EBD5AB"/>
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="#394E39" stroke-width="2"/>
+      <circle cx="17.4" cy="6.6" r="1.3" fill="#394E39"/>
+    </svg>
+  </a>
+</div>
+</div>
+
+      
+
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Bella Vista Dining</span>
+      <span>Privacy · Terms · Reservation policy</span>
+    </div>
+  </footer>
+
+  <!-- ================= DISH DETAIL POP-UP ================= -->
+  <div class="modal-back" id="dishModal">
+    <div class="dish-modal" id="dishModalBox"></div>
+  </div>
+
+
+  <!-- ================= FILTER DRAWER ================= -->
+  <div class="drawer-back" id="drawerBack" onclick="closeFilters()"></div>
+
+  <div class="filter-drawer" id="filterDrawer">
+
+    <div class="fd-head">
+      <h3>Filter menu</h3>
+      <button class="fd-close" onclick="closeFilters()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="fd-body">
+
+      <div class="fd-section">
+        <p class="fd-title">Style</p>
+        <label class="fd-option"><input type="checkbox" value="Filipino"> Filipino</label>
+        <label class="fd-option"><input type="checkbox" value="Continental"> Continental</label>
+      </div>
+
+      <div class="fd-section">
+        <p class="fd-title">Dietary</p>
+        <label class="fd-option"><input type="checkbox" value="Vegetarian"> Vegetarian</label>
+        <label class="fd-option"><input type="checkbox" value="Spicy"> Spicy</label>
+      </div>
+
+      <div class="fd-section">
+        <p class="fd-title">Allergens</p>
+        <p class="fd-hint">Hide dishes that contain:</p>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="peanuts"> Peanuts</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="shellfish"> Shellfish</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="fish"> Fish</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="dairy"> Dairy</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="gluten"> Gluten</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="egg"> Egg</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="soy"> Soy</label>
+        <label class="fd-option"><input type="checkbox" class="fd-allergen" value="sulfites"> Sulfites</label>
+      </div>
+
+      <div class="fd-section">
+        <p class="fd-title">Tags</p>
+        <label class="fd-option"><input type="checkbox" value="House Favorite"> House Favorite</label>
+        <label class="fd-option"><input type="checkbox" value="Local Classic"> Local Classic</label>
+      </div>
+
+      <div class="fd-section">
+        <p class="fd-title">Price <span class="fd-price-now" id="priceNow">up to ₱1,200</span></p>
+        <input type="range" class="fd-range" id="priceRange" min="100" max="1200" step="50" value="1200" oninput="showPriceText()">
+        <div class="fd-range-labels">
+          <span>₱100</span>
+          <span>₱1,200</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fd-foot">
+      <button class="fd-clear" onclick="clearFilters()">Clear all</button>
+      <button class="fd-apply" onclick="applyFilters()">Apply filters</button>
+    </div>
+
+  </div>
+
+    <!-- ================= PHOTO LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous photo">‹</button>
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <button class="lb-arrow lb-next" id="lbNext" aria-label="Next photo">›</button>
+    <p class="lb-count" id="lbCount"></p>
+  </div>
+
+      <!-- ================= CART DRAWER ================= -->
+  <div class="drawer-back" id="cartBack" onclick="closeCart()"></div>
+
+  <div class="cart-drawer" id="cartDrawer">
+
+    <div class="cd-head">
+      <h3>Your order</h3>
+      <button class="cd-close" onclick="closeCart()" aria-label="Close">✕</button>
+    </div>
+
+    <div class="cd-notice">
+      <p id="cdNoticeText">A minimum order of ₱1,000 applies upon seating.</p>
+      <div class="cd-track"><div class="cd-fill" id="cdFill"></div></div>
+    </div>
+
+    <div class="cd-body">
+      <div class="cd-empty" id="cdEmpty">
+        <h4>Your order is empty.</h4>
+        <p>Browse the menu to add dishes.</p>
+      </div>
+      <div id="cdItems"></div>
+      <div class="cd-ordernote" id="cdOrderNote" style="display:none;">
+        <button class="cd-addnote" id="cdOrderNoteBtn" type="button">+ Add a note for the whole order</button>
+        <textarea class="cd-note" id="cdOrderNoteBox" maxlength="250" rows="3" style="display:none;" placeholder="Anything we should know? (e.g. birthday celebration, serve mains together, arriving late)"></textarea>
+      </div>
+    </div>
+
+    <div class="cd-foot">
+      <div class="cd-row"><span>Food subtotal</span><span class="cd-money" id="cdSubtotal">₱0</span></div>
+      <div class="cd-row cd-total"><span>Total</span><span class="cd-money" id="cdTotal">₱0</span></div>
+      <button class="cd-continue" onclick="cartToReservation()">Continue to reservation</button>
+      <button class="cd-keep" onclick="keepBrowsing()">Keep browsing</button>
+    </div>
+
+  </div>
+
+  <!-- ================= POLICIES POP-UP ================= -->
+  <div class="pol-back" id="polModal">
+    <div class="pol-box" role="dialog" aria-labelledby="polTitle">
+      <button class="pol-close" type="button" onclick="closePolicies()" aria-label="Close">✕</button>
+      <p class="pol-kicker">BEFORE YOU BOOK</p>
+      <h2 class="pol-title" id="polTitle">Terms &amp; conditions</h2>
+      <ul class="pol-list">
+        <li>Reserved tables are held for a maximum of 15 minutes after the scheduled time.</li>
+        <li>Cancellations must be made at least 24 hours in advance.</li>
+        <li>VIP and Family fees are non-refundable for same-day cancellations.</li>
+        <li>Outside food and beverages are strictly prohibited.</li>
+        <li>Payments may be made online or onsite through cash or card.</li>
+      </ul>
+      <button class="pol-ok" type="button" onclick="closePolicies()">I understand</button>
+    </div>
+  </div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
